@@ -1,6 +1,6 @@
 <template>
     <div class="container ms-4">
-        <h1>Car management</h1>
+        <h1>Trip management</h1>
         <ul>
             <li v-bind="car">{{ car.regnbr }}</li>
             <li v-bind="car">{{ car.brand }}</li>
@@ -24,6 +24,10 @@
 <script>
 import dbConnection from '@/dbConnection';
 //import { runInThisContext } from 'vm';
+//flytta all trip management funktionalitet till trip management
+//fixa take car funktionaliteten
+//fixa en sök sida var man kan söka efter resor en bil gjort
+//fixa backend funktionalitet för add car och remove car
 
 export default {
     name: 'CarManagement',
