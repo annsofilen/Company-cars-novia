@@ -1,6 +1,6 @@
 <template>
     <div class="container ms-4">
-        <h1>Trip management</h1>
+        <h2>Trip management</h2>
         <ul>
             <li v-bind="car">{{ car.regnbr }}</li>
             <li v-bind="car">{{ car.brand }}</li>

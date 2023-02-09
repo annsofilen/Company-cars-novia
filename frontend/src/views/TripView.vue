@@ -18,8 +18,8 @@
                             <tr v-for="(trip, index) in trips" :key="index" scope="row">
                                 <td>{{ trip.regnbr }}</td>
                                 <td>{{ trip.tripdate }}</td>
-                                <td>{{ trip.driver }} km</td>
-                                <td>{{ trip.kilometers }}</td>
+                                <td>{{ trip.driver }} </td>
+                                <td>{{ trip.kilometers }} km</td>
 
                             </tr>
                         </tbody>

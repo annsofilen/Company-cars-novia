@@ -1,10 +1,10 @@
 <template>
     <div class="ms-4">
-        <h1>Car Management</h1>
+        <h2>Car Management</h2>
         <div class="container">
             <div class="row">
                 <div class="col-sm">
-                    <h2>Add a car</h2>
+                    <h3>Add a car</h3>
                     <form action="" class="ms-4 ">
                         <label for="regnbr" class="form-label">Registration number:</label>
                         <input type="text" id="regnbr" class="form-control">
@@ -16,7 +16,7 @@
                     </form>
                 </div>
                 <div class="col-sm">
-                    <h2>Remove a car</h2>
+                    <h3>Remove a car</h3>
                     <select class="form-select" >
                         <option value="">Select car</option>
                         <option value="" v-for="(car, index) in cars" :key="index">{{ car.regnbr }}</option>
