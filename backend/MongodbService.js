@@ -51,6 +51,37 @@ module.exports.updateCarAvailability = async (id, availability) => {
     }
 }
 
+
+module.exports.insertCar = async (regnbr, brand, kilometers, inne) => {
+    try {
+        const cars = await loadCollection('cars')
+        await cars.insertOne({
+            'regnbr': regnbr,
+            'brand': brand,
+            'kilometers': kilometers,
+            'inne': inne,
+            
+        })
+        return true;
+    } catch (error) {
+        console.log(error)
+        return false
+    }
+}
+
+module.exports.deleteCar = async (regnbr) => {
+    try {
+        const cars = await loadCollection('cars')
+        await cars.deleteOne({ 'regnbr': regnbr })
+        return true;
+    } catch (error) {
+        console.log(error)
+        return false
+    }
+}
+
+//--------------------------TRIPS---------------------------------
+
 module.exports.readTrips = async () => {
     try {
         const trips = await loadCollection('trips')
