@@ -60,8 +60,9 @@ module.exports.insertCar = async (regnbr, brand, kilometers, inne) => {
             'brand': brand,
             'kilometers': kilometers,
             'inne': inne,
-            
+
         })
+        console.log("car inserted")
         return true;
     } catch (error) {
         console.log(error)
@@ -73,6 +74,7 @@ module.exports.deleteCar = async (regnbr) => {
     try {
         const cars = await loadCollection('cars')
         await cars.deleteOne({ 'regnbr': regnbr })
+        console.log("deleting car: " + regnbr)
         return true;
     } catch (error) {
         console.log(error)

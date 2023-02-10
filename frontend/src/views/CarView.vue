@@ -20,7 +20,7 @@
                             <td>{{ car.id }}</td>
                             <td>{{ car.kilometers }} km</td>
                             <td>{{ car.inne }}</td>
-                            <td v-if="car.inne == true"><input type="button" value="Take" @click="takeCar(index)"
+                            <td v-if="car.inne === true"><input type="button" value="Take" @click="takeCar(index)"
                                     class="btn btn-outline-dark"></td>
                             <td v-else><input type="button" value="Return" @click="returnCar(index)"
                                     class="btn btn-outline-dark"></td>

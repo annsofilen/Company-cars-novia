@@ -16,33 +16,69 @@ class dbConnection {
     }
 
     static async postCarKm(id, km) {
-        try {console.log('id ' +id)
-            console.log('km ' +km)
+        try {
+            console.log('id ' + id)
+            console.log('km ' + km)
             let result = await axios.post(carsurl + '/update-km', {
                 id: id,
                 kilometers: km
-              })
+            })
             return result.data
         } catch (error) {
+            console.log(error)
             return false
         }
-
     }
 
 
-static async postCarAvailability(id, availability) {
-        try {console.log('id ' +id)
-            console.log('inne ' +availability)
+    static async postCarAvailability(id, availability) {
+        try {
+            console.log('id ' + id)
+            console.log('inne ' + availability)
             let result = await axios.post(carsurl + '/update-availability', {
                 id: id,
                 inne: availability
-              })
+            })
             return result.data
         } catch (error) {
+            console.log(error)
             return false
         }
-
     }
+
+    static async postAddCar(regnbr, brand, kilometers, inne) {
+        try {
+            let result = await axios.post(carsurl + '/insert-car', {
+                regnbr: regnbr,
+                brand: brand,
+                kilometers: kilometers,
+                inne: inne
+            })
+            return result.data
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    static async postDeleteCar(regnbr) {
+        try {
+            let result = await axios.post(carsurl + '/delete-car', {
+                regnbr: regnbr,
+
+            })
+            return result.data
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+
+
+    //-------------------------------------------
     static async getDBTrips() {
         try {
             let result = await axios.get(tripsurl)
