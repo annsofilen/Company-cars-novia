@@ -1,6 +1,9 @@
 <template>
     <div class="ms-4">
         <h1>Trips</h1>
+        <input type="text" class="form-control" placeholder="Registration number" aria-label="Username"
+            aria-describedby="basic-addon1" v-model="this.search" @change="setSearch">
+
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -40,14 +43,24 @@ export default {
     },
     data() {
         return {
-            trips: []
+            trips: [],
+            searchRegNbr: '',
+            search: ''
         }
     }
     ,
     async mounted() {
-        this.trips = await tripConnection.getDBTrips();
+        if (this.searchRegNbr == '') {
+            this.trips = await tripConnection.getDBTrips();
+        }
     },
-    methods: {}
+    methods: {
+        async setSearch() {
+            this.searchRegNbr = this.search
+            this.trips = await tripConnection.getTripReg(this.searchRegNbr)
+
+        }
+    }
 }
 </script>
 
