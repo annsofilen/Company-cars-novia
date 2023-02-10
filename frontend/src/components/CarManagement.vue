@@ -23,6 +23,8 @@
                             car.regnbr
                         }}</option>
                     </select>
+                    <input type="text" id="todelete" class="form-control" v-model="toDelete" placeholder="Registration number">
+
                     <button class="alert alert-danger mt-2" @click="deleteCar">Delete</button>
                 </div>
             </div>
@@ -70,7 +72,7 @@ export default {
         },
 
         async deleteCar() {
-            await dbConnection.postDeleteCar(this.car.regnbr)
+            await dbConnection.postDeleteCar(this.toDelete)
             console.log("deleteing car: " + this.toDelete)
         }
     }
