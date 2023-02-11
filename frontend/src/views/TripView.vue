@@ -1,12 +1,24 @@
 <template>
     <div class="ms-4">
-        <h1>Trips</h1>
-        <input type="text" class="form-control" placeholder="Registration number" aria-label="Username"
-            aria-describedby="basic-addon1" v-model="this.search" @change="setSearch">
+        <h1 ms-4 p-2>Trips</h1>
+        <div class="container">
+            <div >
+                <div >
+                    <form class="row" action="">
+                        <input type="text" class="col p-2 form-control" placeholder="Registration number" aria-label="Username"
+                            aria-describedby="basic-addon1" v-model="this.search" @keyup="setSearch">
+                            <input type="button" value="Search" @click="setSearch"
+                                    class="col p-2 btn btn-outline-secondary">
+                        </form>
+                </div>
+
+            </div>
+        </div>
+
 
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col p-2">
                     <table class="table table-light table-striped table-hover table-sm ms-4">
                         <thead>
                             <tr>

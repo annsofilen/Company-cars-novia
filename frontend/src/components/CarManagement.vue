@@ -3,7 +3,7 @@
         <h2>Car Management</h2>
         <div class="container">
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm ">
                     <h3>Add a car</h3>
                     <form action="" class="ms-4 ">
                         <label for="regnbr" class="form-label">Registration number:</label>
@@ -12,20 +12,21 @@
                         <input type="text" id="brand" class="form-control" v-model="car.brand">
                         <label for="km" class="form-label">Kilometers:</label>
                         <input type="text" id="km" class="form-control " v-model="car.kilometers">
-                        <input type="button" value="Add car" class="btn btn-outline-dark" @click="addCar">
+                        <input type="button" value="Add car" class="btn btn-outline-success" @click="addCar">
                     </form>
                 </div>
                 <div class="col-sm">
                     <h3>Remove a car</h3>
                     <select class="form-select" v-model="this.toDelete">
                         <option value="">Select car</option>
-                        <option :value=" this.toDelete" v-for="(car, index) in cars" :key="index">{{
+                        <option :value="this.toDelete" v-for="(car, index) in cars" :key="index">{{
                             car.regnbr
                         }}</option>
                     </select>
-                    <input type="text" id="todelete" class="form-control" v-model="toDelete" placeholder="Registration number">
+                    <input type="text" id="todelete" class="form-control" v-model="toDelete"
+                        placeholder="Registration number">
 
-                    <button class="alert alert-danger mt-2" @click="deleteCar">Delete</button>
+                    <button class="btn btn-outline-danger" @click="deleteCar">Delete</button>
                 </div>
             </div>
         </div>

@@ -14,10 +14,13 @@
             <input type="text" id="driver" class="form-control" v-model="driver">
             <label for="tipdate" class="form-label">Enter the date of the trip:</label>
             <input type="date" id="tripdate" class="form-control " v-model="tripdate">
-            <label v-if="car.inne === false" for="kilometers" class="form-label">Enter the number of kilometers you drove the car:</label>
-            <input v-if="car.inne === false" type="text" id="kilometers" class="form-control text-end" v-model="kilometers">
-            <input v-if="car.inne === false" type="button" value="Complete return" class="alert alert-danger mt-2" @click="addKilometers">
-            <input v-else type="button" value="Reserve car" class="alert alert-danger mt-2" @click="addKilometers">
+            <label v-if="car.inne === false" for="kilometers" class="form-label">Enter the number of kilometers you
+                drove the car:</label>
+            <input v-if="car.inne === false" type="text" id="kilometers" class="form-control text-end"
+                v-model="kilometers">
+            <input v-if="car.inne === false" type="button" value="Complete return" class="btn btn-outline-secondary"
+                @click="addKilometers">
+            <input v-else type="button" value="Reserve car" class="btn btn-outline-secondary" @click="addKilometers">
 
         </form>
     </div>
@@ -75,7 +78,7 @@ export default {
             } else if (availability == false) {
                 availability = true
             }
-            else  {
+            else {
                 availability = false
             }
             await dbConnection.postCarAvailability(this.car._id, availability)
