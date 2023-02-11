@@ -1,43 +1,54 @@
 <template>
+
     <HelloWorld msg="Cars" />
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <table class="table table-light table-striped table-hover table-sm ms-4">
-                    <thead>
-                        <tr>
-                            <th scope="col">Registration number</th>
-                            <th scope="col">Car brand</th>
-                            <th scope="col">Kilometers</th>
-                            <th scope="col">Availability</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="(car, index) in cars" :key="index" scope="row">
-                            <td @click="searchTripsForReg(car.regnbr)">{{ car.regnbr }}</td>
-                            <td>{{ car.id }}</td>
-                            <td>{{ car.kilometers }} km</td>
-                            <td>{{ car.inne }}</td>
-                            <td v-if="car.inne === true"><input type="button" value="Take" @click="takeCar(index)"
-                                    class="btn btn-outline-success"></td>
-                            <td v-else><input type="button" value="Return" @click="returnCar(index)"
-                                    class="btn btn-outline-dark"></td>
-                        </tr>
-                    </tbody>
-                </table>
+
+
+    <div class="container ms-4 p-2">
+        <div class="card card-body">
+            <div class="row">
+                <p class="ms-4">In this app you can reserve and return cars of the company</p>
             </div>
+            <div class="row">
+                <div class="col-sm">
+                    <table class="table table-light table-striped table-hover table-sm ms-4">
+                        <thead>
+                            <tr>
+                                <th scope="col">Registration number</th>
+                                <th scope="col">Car brand</th>
+                                <th scope="col">Kilometers</th>
+
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(car, index) in cars" :key="index" scope="row">
+                                <td @click="searchTripsForReg(car.regnbr)">{{ car.regnbr }}</td>
+                                <td>{{ car.brand }}</td>
+                                <td>{{ car.kilometers }} km</td>
+
+                                <td v-if="car.inne === true"><input type="button" value="Take" @click="takeCar(index)"
+                                        class="btn btn-outline-success"></td>
+                                <td v-else><input type="button" value="Return" @click="returnCar(index)"
+                                        class="btn btn-outline-dark"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm">
+                    <TripManagement v-if="currentCar" v-bind:car="currentCar" class="ms-4 p-2"></TripManagement>
+                    <RentalInformation v-else class="ms-4 p-2"></RentalInformation>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row p-5">
             <div class="col-sm">
-                <TripManagement v-if="currentCar" v-bind:car="currentCar"></TripManagement>
-                <RentalInformation v-else></RentalInformation>
+                <CarManagement class="ms-4"></CarManagement>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm">
-                <CarManagement></CarManagement>
-            </div>
-        </div>
+
     </div>
 </template>
 

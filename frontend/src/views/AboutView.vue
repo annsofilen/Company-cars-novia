@@ -1,17 +1,20 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <RentalInformation></RentalInformation>
+    <div class="card card-body">
+      <h1 class="ms-4">About</h1>
+      <HelloWorld class="ms-4" msg="Car Management App"/>
+      <p class="ms-4">In this app you can reserve and return cars of the company</p>
+  </div>
+    
   </div>
 </template>
 
 <script>
-import RentalInformation from '@/components/RentalInformation.vue';
 
 export default {
   name: 'AboutView',
   components: {
-    RentalInformation
+    
   }
 }
 </script>

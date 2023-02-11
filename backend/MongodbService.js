@@ -100,11 +100,11 @@ module.exports.readTripsReg = async (reg) => {
     try {
         const trips = await loadCollection('trips')
 
-        console.log(await trips.find({ regnbr: reg }).toArray())
-        return await trips.find({ regnbr: reg }).toArray()
+        console.log(await trips.find({ regnbr: {$in: [reg] }  }).toArray())
+        return await trips.find({ regnbr: {$in: [reg] }  }).toArray()
     } catch (error) {
         console.log(error)
-        return []
+        return 'No results'
     }
 }
 

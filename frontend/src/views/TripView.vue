@@ -2,14 +2,15 @@
     <div class="ms-4">
         <h1 ms-4 p-2>Trips</h1>
         <div class="container">
-            <div >
-                <div >
+            <div>
+                <div>
                     <form class="row" action="">
-                        <input type="text" class="col p-2 form-control" placeholder="Registration number" aria-label="Username"
-                            aria-describedby="basic-addon1" v-model="this.search" @keyup="setSearch">
-                            <input type="button" value="Search" @click="setSearch"
-                                    class="col p-2 btn btn-outline-secondary">
-                        </form>
+                        <input type="text" class="col ps-2 form-control" placeholder="Registration number"
+                            aria-label="Username" aria-describedby="basic-addon1" v-model="this.search"
+                            @keyup.enter="setSearch">
+                        <input type="button" value="Search" @click="setSearch"
+                            class="col p-2 btn btn-outline-secondary">
+                    </form>
                 </div>
 
             </div>
