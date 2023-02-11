@@ -77,23 +77,12 @@ export default {
 
     methods: {
         async takeCar(index) {
-            this.takenCar = this.cars[index]
-            let availability = this.takenCar.inne;
-            if (availability == true) {
-                availability = false
-            }
-            if (availability == undefined) {
-                availability = false
-            }
-            await dbConnection.postCarAvailability(this.takenCar._id, availability)
-
+            this.currentCar = this.cars[index]
         },
         returnCar(index) {
             this.currentCar = this.cars[index]
         },
-        async searchTripsForReg(regnbr) {
-            await dbConnection.getTripReg(regnbr)
-        }
+
 
     }
 
