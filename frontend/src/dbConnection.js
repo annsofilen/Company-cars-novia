@@ -112,44 +112,6 @@ class dbConnection {
 
     }
 
-
-    /* static async insertMeasure(measure) {
-        try {
-            let res = await axios.post(measuresurl, { nbr: measure.nbr, station: measure.station, date: measure.date, time: measure.time, celsius: measure.celsius })
-            return res.data
-        } catch (error) {
-            return false
-        }
-    }
-
-    static async deleteMeasure(nbr) {
-
-        try {
-            
-            let res = await axios.delete(measuresurl + '/' + nbr)
-            console.log('delete clicked in be service : ' + nbr)
-            return res.data
-        } catch (error) {
-            return false
-        }
-
-    }
-
-    static async getMeasureCount() {
-
-        try {
-            
-            let res = await axios.get(measuresurl+'/count' )
-            console.log('get collection count: ' + res.data)
-            return res.data
-        } catch (error) {
-            return false
-        }
-
-    }
-     */
-
-
 }
 
 export default dbConnection
