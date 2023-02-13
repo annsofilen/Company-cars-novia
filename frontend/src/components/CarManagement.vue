@@ -33,6 +33,7 @@
                         <button class="btn btn-outline-danger ms-1 p-2" @click="deleteCar">Delete</button>
                     </div>
                 </div>
+
             </div>
         </div>
 

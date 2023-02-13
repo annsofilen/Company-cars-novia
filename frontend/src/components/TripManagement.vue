@@ -1,6 +1,15 @@
 <template>
     <div class="container ms-4">
         <h2>Trip management</h2>
+        
+    </div>
+    <div v-if="this.return === true && this.reserve==null" class="ms-4 ">
+        <p>Thank you for returning the car</p>
+    </div>
+    <div v-else-if="this.return === null && this.reserve==true" class="ms-4 ">
+        <p>Reservation ok. Happy driving!</p> 
+    </div>
+    <div v-else class="ms-4 ">
         <ul>
             <li v-bind="car">{{ car.regnbr }}</li>
             <li v-bind="car">{{ car.brand }}</li>
@@ -42,6 +51,8 @@ export default {
             tripdate: '',
             driver: '',
             kilometers: null,
+            reserve: null,
+            return:null
 
         }
     },
@@ -52,11 +63,15 @@ export default {
             //this.updateAvailability();
             this.addKilometers(0);
             this.addTrip();
+            this.reserve = true
+            this.return = null
         },
 
         onReturn() {
             //this.updateAvailability();
             this.addKilometers(this.kilometers);
+            this.reserve = null
+            this.return = true
         },
 
         async addKilometers(km) {
