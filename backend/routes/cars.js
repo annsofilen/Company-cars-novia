@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 
 router.post('/update-km', async (req, res) => {
     try {
-        let isok = await mongoDBService.updateCarKilometers(req.body.id, req.body.kilometers)
+        let isok = await mongoDBService.updateCarKilometers(req.body.regnbr, req.body.brand, req.body.kilometers, req.body.inne)
         res.send(isok)
     } catch (error) {
         console.log(error)
@@ -29,7 +29,7 @@ router.post('/update-km', async (req, res) => {
 
 router.post('/update-availability', async (req, res) => {
     try {
-        let isok = await mongoDBService.updateCarAvailability(req.body.id, req.body.inne)
+        let isok = await mongoDBService.updateCarAvailability(req.body.regnbr, req.body.brand, req.body.kilometers, req.body.inne)
         res.send(isok)
     } catch (error) {
         console.log(error)

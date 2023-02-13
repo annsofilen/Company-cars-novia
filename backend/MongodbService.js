@@ -11,20 +11,21 @@ module.exports.readCars = async () => {
     }
 }
 
-module.exports.updateCarKilometers = async (id, km) => {
+module.exports.updateCarKilometers = async (regnbr, brand, km, inne) => {
     try {
         const cars = await loadCollection('cars')
 
-        await cars.findOneAndUpdate({ '_id': id }
+        await cars.findOneAndUpdate({ regnbr: regnbr }
             , {
                 $set:
                 {
-                    'regnbr': '',
-                    'brand': '',
-                    'kilometers': km
+                    'regnbr': regnbr,
+                    'brand': brand,
+                    'kilometers': km,
+                    'inne':inne
                 }
             })
-        console.log('update km ' + id + ' ' + km)
+        console.log('update km ' + regnbr + ' ' + km)
         return true
     } catch (error) {
         console.log(error)
@@ -32,14 +33,17 @@ module.exports.updateCarKilometers = async (id, km) => {
     }
 }
 
-module.exports.updateCarAvailability = async (id, availability) => {
+module.exports.updateCarAvailability = async (regnbr, brand, km, availability) => {
     try {
         const cars = await loadCollection('cars')
         cars.updateOne({
-            _id: id
+            regnbr: regnbr
         }, {
             $set:
             {
+                regnbr: regnbr,
+                brand: brand,
+                kilometers:km,
                 inne: availability
             }
         })
@@ -100,8 +104,8 @@ module.exports.readTripsReg = async (reg) => {
     try {
         const trips = await loadCollection('trips')
 
-        console.log(await trips.find({ regnbr: {$in: [reg] }  }).toArray())
-        return await trips.find({ regnbr: {$in: [reg] }  }).toArray()
+        console.log(await trips.find({ regnbr: { $in: [reg] } }).toArray())
+        return await trips.find({ regnbr: { $in: [reg] } }).toArray()
     } catch (error) {
         console.log(error)
         return 'No results'

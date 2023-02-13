@@ -5,7 +5,6 @@
             <li v-bind="car">{{ car.regnbr }}</li>
             <li v-bind="car">{{ car.brand }}</li>
             <li v-bind="car">{{ car.kilometers }}</li>
-            <li v-bind="car">{{ car._id }}</li>
         </ul>
         <form action="" class="ms-4 ">
             <label for="regnbr" class="form-label">Registration number:</label>
@@ -19,8 +18,8 @@
             <input v-if="car.inne === false" type="text" id="kilometers" class="form-control text-end"
                 v-model="kilometers">
             <input v-if="car.inne === false" type="button" value="Complete return" class="btn btn-outline-secondary"
-                @click="addKilometers">
-            <input v-else type="button" value="Reserve car" class="btn btn-outline-secondary" @click="addKilometers">
+                @click="onReturn">
+            <input v-else type="button" value="Reserve car" class="btn btn-outline-secondary" @click="onReserve">
 
         </form>
     </div>
@@ -35,7 +34,7 @@ import dbConnection from '@/dbConnection';
 //fixa backend funktionalitet för add car och remove car
 
 export default {
-    name: 'CarManagement',
+    name: 'TripManagement',
     props: {
         car: {}
     }, data() {
@@ -49,12 +48,33 @@ export default {
 
     mounted() { },
     methods: {
-        async addKilometers() {
-            let updatedKm = parseInt(this.kilometers) + parseInt(this.car.kilometers)
-            console.log(updatedKm + 'updated kilometers')
-            dbConnection.postCarKm(this.car._id, updatedKm)
-            this.updateAvailability()
-            this.addTrip()
+        onReserve() {
+            //this.updateAvailability();
+            this.addKilometers(0);
+            this.addTrip();
+        },
+
+        onReturn() {
+            //this.updateAvailability();
+            this.addKilometers(this.kilometers);
+        },
+
+        async addKilometers(km) {
+            let availability = this.car.inne;
+            if (availability == true) {
+                availability = false
+            } else if (availability == false) {
+                availability = true
+            }
+            else {
+                availability = false
+            }
+
+
+            let updatedKm = parseInt(km) + parseInt(this.car.kilometers)
+            console.log(updatedKm + ' updated kilometers')
+            this.kilometers = updatedKm
+            dbConnection.postCarKm(this.car.regnbr, this.car.brand, updatedKm, availability)
         },
 
         async addTrip() {
@@ -70,19 +90,6 @@ export default {
             dbConnection.postDBTrip(newTrip)
         },
 
-        async updateAvailability() {
-
-            let availability = this.car.inne;
-            if (availability == true) {
-                availability = false
-            } else if (availability == false) {
-                availability = true
-            }
-            else {
-                availability = false
-            }
-            await dbConnection.postCarAvailability(this.car._id, availability)
-        }
     }
 }
 </script>

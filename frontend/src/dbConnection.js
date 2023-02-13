@@ -15,13 +15,15 @@ class dbConnection {
 
     }
 
-    static async postCarKm(id, km) {
+    static async postCarKm(regnbr, brand, km, inne) {
         try {
-            console.log('id ' + id)
+            console.log('regnbr ' + regnbr)
             console.log('km ' + km)
             let result = await axios.post(carsurl + '/update-km', {
-                id: id,
-                kilometers: km
+                regnbr: regnbr,
+                brand: brand,
+                kilometers: km,
+                inne: inne
             })
             return result.data
         } catch (error) {
@@ -31,12 +33,14 @@ class dbConnection {
     }
 
 
-    static async postCarAvailability(id, availability) {
+    static async postCarAvailability(regnbr, brand, km, availability) {
         try {
-            console.log('id ' + id)
+            console.log('regnbr ' + regnbr)
             console.log('inne ' + availability)
             let result = await axios.post(carsurl + '/update-availability', {
-                id: id,
+                regnbr: regnbr,
+                brand: brand,
+                kilometers: km,
                 inne: availability
             })
             return result.data
