@@ -5,12 +5,12 @@
 
     <div class="container">
         <div class="card card-body">
-            <div class="row">
+            <div class="row pt-2 pb-2">
                 <p class="ms-4">In this app you can reserve and return cars of the company</p>
             </div>
             <div class="row">
-                <div class="col-sm">
-                    <table class="table table-light table-striped table-hover table-sm ms-4">
+                <div class="col-7 pt-2 pb-2">
+                    <table class="table table-light table-hover table borderless pt-2 pb-2">
                         <thead>
                             <tr>
                                 <th scope="col">Registration number</th>
@@ -21,7 +21,7 @@
                                 
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="table-group-divider">
                             <tr v-for="(car, index) in cars" :key="index" scope="row">
                                 <td @click="searchTripsForReg(car.regnbr)">{{ car.regnbr }}</td>
                                 <td>{{ car.brand }}</td>
@@ -35,7 +35,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-sm">
+                <div class="col-5">
                     <TripManagement v-if="currentCar" v-bind:car="currentCar" class="ms-4 p-2"></TripManagement>
                     <RentalInformation v-else class="ms-4 p-2"></RentalInformation>
                 </div>
@@ -43,7 +43,7 @@
 
         </div>
 
-        <div class="row pt-5 pb-5">
+        <div class="row pt-2 pb-2">
             <div class="col">
                 <CarManagement ></CarManagement>
             </div>
