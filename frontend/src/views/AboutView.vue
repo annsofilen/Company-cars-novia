@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <h1 class="ms-4">About</h1>
+  <div class="about container vh-100">
+    <HelloWorld class=" text-center  pt-4" msg="About"/>
 
     <div class="card card-body">
 
@@ -11,11 +11,12 @@
 </template>
 
 <script>
+import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'AboutView',
   components: {
-
+    HelloWorld
   }
 }
 </script>

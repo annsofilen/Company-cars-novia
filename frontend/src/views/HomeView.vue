@@ -1,9 +1,9 @@
 <template>
-  <div class="home">
-    <HelloWorld class="ms-4" msg="Car Management App"/>
-    <div class="card card-body">
+  <div class="home min-vh-100">
+    <HelloWorld class=" text-center  pt-4" msg="Car Management App"/>
+    <div class="card card-body container">
       
-      <p class="ms-4">In this app you can reserve and return cars of the company</p>
+      <p class="p-2">In this app you can reserve and return cars of the company</p>
   </div>
   </div>
 </template>

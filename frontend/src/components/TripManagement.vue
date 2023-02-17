@@ -1,20 +1,22 @@
 <template>
     <div class="container ms-4">
         <h2>Trip management</h2>
-        
+
     </div>
-    <div v-if="this.return === true && this.reserve==null" class="ms-4 ">
+    <div v-if="this.return === true && this.reserve == null" class="ms-4 ">
         <p>Thank you for returning the car</p>
     </div>
-    <div v-else-if="this.return === null && this.reserve==true" class="ms-4 ">
-        <p>Reservation ok. Happy driving!</p> 
+    <div v-else-if="this.return === null && this.reserve == true" class="ms-4 ">
+        <p>Reservation ok. Happy driving!</p>
     </div>
     <div v-else class="ms-4 ">
-        <ul>
-            <li v-bind="car">{{ car.regnbr }}</li>
-            <li v-bind="car">{{ car.brand }}</li>
-            <li v-bind="car">{{ car.kilometers }}</li>
-        </ul>
+        <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" v-bind="car">{{ car.regnbr }}</li>
+                <li class="list-group-item" v-bind="car">{{ car.brand }}</li>
+                <li class="list-group-item" v-bind="car">{{ car.kilometers }}</li>
+            </ul>
+        </div>
         <form action="" class="ms-4 ">
             <label for="regnbr" class="form-label">Registration number:</label>
             <input type="text" id="regnbr" class="form-control" :value="car.regnbr">
@@ -24,17 +26,17 @@
             <input type="date" id="tripdate" class="form-control " v-model="tripdate">
             <label v-if="car.inne === false" for="kilometers" class="form-label">Enter the number of kilometers you
                 drove the car:</label>
-            <input v-if="car.inne === false" type="text" id="kilometers" class="form-control text-end"
-                v-model="kilometers">
+            <input v-if="car.inne === false" type="text" id="kilometers" class="form-control text-end" v-model="kilometers">
             <input v-if="car.inne === false" type="button" value="Complete return" class="btn btn-outline-secondary"
                 @click="onReturn">
             <input v-else type="button" value="Reserve car" class="btn btn-outline-secondary" @click="onReserve">
 
         </form>
-    </div>
+</div>
 </template>
 
 <script>
+
 import dbConnection from '@/dbConnection';
 //import { runInThisContext } from 'vm';
 //flytta all trip management funktionalitet till trip management
@@ -52,7 +54,7 @@ export default {
             driver: '',
             kilometers: null,
             reserve: null,
-            return:null
+            return: null
 
         }
     },

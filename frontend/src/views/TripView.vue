@@ -1,53 +1,50 @@
 <template>
-    <div class="ms-4">
-        <h1 ms-4 p-2>Trips</h1>
+    <div class="m-4 min-vh-100">
 
-        <div class="card card-body ms-4 p-2">
+        <HelloWorld msg="Trips" class=" text-center pt-4" />
+
+        <div class="card card-body pt-2 container">
 
 
 
-            <div class="container ms-4 p-2">
-                <div>
-                    <div>
-                        <form class="row" action="">
-                            <input type="text" class="col ps-2 form-control" placeholder="Registration number"
+            <div class="containerp-2">
+
+                <form class="row" action="">
+                    <div class="row">
+                        <div class="col-6"><input type="text" class="p-2 form-control" placeholder="Registration number"
                                 aria-label="Username" aria-describedby="basic-addon1" v-model="this.search"
-                                @keyup.enter="setSearch">
-                            <input type="button" value="Search" @click="setSearch"
-                                class="col p-2 btn btn-outline-secondary">
-                        </form>
+                                @keyup.enter="setSearch"></div>
+                        <div class="col-4"> <input type="button" value="Search" @click="setSearch"
+                                class="col-3 p-2 btn btn-outline-secondary">
+                        </div>
                     </div>
 
-                </div>
+                </form>
             </div>
 
 
-            <div class="container ms-4 p-2">
-                <div class="row">
-                    <div class="col p-2">
-                        <table class="table table-light table-striped table-hover table-sm ms-4">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Registration number</th>
-                                    <th scope="col">Trip date</th>
-                                    <th scope="col">Driver</th>
-                                    <th scope="col">Kilometers</th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="(trip, index) in trips" :key="index" scope="row">
-                                    <td>{{ trip.regnbr }}</td>
-                                    <td>{{ trip.tripdate }}</td>
-                                    <td>{{ trip.driver }} </td>
-                                    <td>{{ trip.kilometers }} km</td>
+            <table class="table table-light table-hover table borderless p-2">
+                <thead>
+                    <tr>
+                        <th scope="col">Registration number</th>
+                        <th scope="col">Trip date</th>
+                        <th scope="col">Driver</th>
+                        <th scope="col">Kilometers</th>
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(trip, index) in trips" :key="index" scope="row">
+                        <td>{{ trip.regnbr }}</td>
+                        <td>{{ trip.tripdate }}</td>
+                        <td>{{ trip.driver }} </td>
+                        <td>{{ trip.kilometers }} km</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
 </div>
 </template>
@@ -55,12 +52,23 @@
 <script>
 
 
+
+
+
+
 import tripConnection from '../dbConnection.js'
+import HelloWorld from '@/components/HelloWorld.vue'
+
 
 export default {
     name: 'TripView',
+    components: {
+         HelloWorld 
+        },
+
     props: {
-        msg: String
+        msg: String,
+
     },
     data() {
         return {
