@@ -2,6 +2,9 @@
     <div class="m-4 min-vh-100">
 
         <HelloWorld msg="Trips" class=" text-center pt-4" />
+        <div class="card card-body pt-2 pb-4 mb-3 container">
+            <TripStatistics></TripStatistics>
+        </div>
 
         <div class="card card-body pt-2 container">
 
@@ -56,15 +59,18 @@
 
 
 
+
 import tripConnection from '../dbConnection.js'
 import HelloWorld from '@/components/HelloWorld.vue'
+import TripStatistics from '@/components/TripStatistics.vue'
 
 
 export default {
     name: 'TripView',
     components: {
-         HelloWorld 
-        },
+        HelloWorld,
+        TripStatistics
+    },
 
     props: {
         msg: String,
