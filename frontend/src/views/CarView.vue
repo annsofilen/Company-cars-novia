@@ -17,7 +17,7 @@
                                     <th scope="col">Car brand</th>
                                     <th scope="col">Kilometers</th>
 
-                                    <th scope="col">button</th>
+                                    <th scope="col">Availability</th>
 
                                 </tr>
                             </thead>

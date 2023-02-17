@@ -11,6 +11,7 @@
     </div>
     <div v-else class="ms-4 ">
         <div class="card">
+            
             <ul class="list-group list-group-flush">
                 <li class="list-group-item" v-bind="car">{{ car.regnbr }}</li>
                 <li class="list-group-item" v-bind="car">{{ car.brand }}</li>
@@ -19,14 +20,14 @@
         </div>
         <form action="" class="ms-4 ">
             <label for="regnbr" class="form-label">Registration number:</label>
-            <input type="text" id="regnbr" class="form-control" :value="car.regnbr">
+            <input type="text" placeholder="Registration number" id="regnbr" class="form-control" :value="car.regnbr">
             <label for="driver" class="form-label">Driver:</label>
-            <input type="text" id="driver" class="form-control" v-model="driver">
-            <label for="tipdate" class="form-label">Enter the date of the trip:</label>
+            <input type="text" placeholder="Driver" id="driver" class="form-control" v-model="driver">
+            <label for="tipdate" placeholder="Trip date" class="form-label">Enter the date of the trip:</label>
             <input type="date" id="tripdate" class="form-control " v-model="tripdate">
             <label v-if="car.inne === false" for="kilometers" class="form-label">Enter the number of kilometers you
                 drove the car:</label>
-            <input v-if="car.inne === false" type="text" id="kilometers" class="form-control text-end" v-model="kilometers">
+            <input v-if="car.inne === false" type="text" placeholder="Kilometers" id="kilometers" class="form-control text-end" v-model="kilometers">
             <input v-if="car.inne === false" type="button" value="Complete return" class="btn btn-outline-secondary"
                 @click="onReturn">
             <input v-else type="button" value="Reserve car" class="btn btn-outline-secondary" @click="onReserve">

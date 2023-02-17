@@ -1,13 +1,13 @@
 <template>
-  <div class="vh-100 bg-light style='{ height: '100vh' } " >
-    <ul class="nav nav-tabs">
-      <li class="nav-item"><router-link class="nav-link" to="/">Home</router-link> </li>
+  <div class=" bg-light" >
+    <ul class="nav nav-tabs mt-2 pt-3">
+      <li class="nav-item "><router-link class="nav-link" to="/">Home</router-link> </li>
       <li><router-link class="nav-link" to="/about">About</router-link></li>
       <li class="nav-item"><router-link class="nav-link" to="/cars">Cars</router-link> </li>
       <li><router-link class="nav-link" to="/trips">Trips</router-link></li>
     </ul>
 
-    <router-view id="router"/>
+    <router-view id="router" class="text center"/>
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-light text-muted">
 

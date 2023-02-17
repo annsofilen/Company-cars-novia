@@ -11,10 +11,10 @@
                     <h3 class="p-1">Add a car</h3>
                     <form action="" class="mb-3">
 
-                        <input type="text" id="regnbr" class="form-control mt-2" placeholder="registration number"
+                        <input type="text" id="regnbr" class="form-control mt-2" placeholder="Registration number"
                             v-model="car.regnbr">
 
-                        <input type="text" id="brand" class="form-control mt-2" placeholder="brand" v-model="car.brand">
+                        <input type="text" id="brand" class="form-control mt-2" placeholder="Brand" v-model="car.brand">
 
                         <input type="text" id="km" class="form-control mt-2" placeholder="Kilometers"
                             v-model="car.kilometers">
