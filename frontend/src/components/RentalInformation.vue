@@ -3,9 +3,9 @@
 
 
 
-    <h2 class="ms-4">Rental information</h2>
-    <p class="ms-4">If you want to rent a car, press "Take car" in order to make it unavailable.</p>
-    <p class="ms-4">Press "Return car", enter how far you drove, and return it when you are back.</p>
+    <h2 class="mt-1">Rental information</h2>
+    <p class="mt-1">If you want to rent a car, press "Take car" in order to make it unavailable.</p>
+    <p class="mt-1">Press "Return car", enter how far you drove, and return it when you are back.</p>
 
 
   </div>

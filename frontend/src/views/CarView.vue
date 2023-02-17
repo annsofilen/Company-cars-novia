@@ -3,7 +3,7 @@
     <HelloWorld msg="Cars" />
 
 
-    <div class="container ms-4 p-2">
+    <div class="container">
         <div class="card card-body">
             <div class="row">
                 <p class="ms-4">In this app you can reserve and return cars of the company</p>
@@ -43,9 +43,9 @@
 
         </div>
 
-        <div class="row p-5">
-            <div class="col-sm">
-                <CarManagement class="ms-4"></CarManagement>
+        <div class="row pt-5 pb-5">
+            <div class="col">
+                <CarManagement ></CarManagement>
             </div>
         </div>
 
