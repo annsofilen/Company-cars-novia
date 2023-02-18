@@ -9,7 +9,7 @@
                     <p class="ms-4">In this app you can reserve and return cars of the company</p>
                 </div>
                 <div class="row">
-                    <div class="col-7 pt-2 pb-2">
+                    <div class="col-8 pt-2 pb-2">
                         <table class="table table-light table-hover table borderless pt-2 pb-2">
                             <thead>
                                 <tr>
@@ -35,7 +35,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-5">
+                    <div class="col">
                         <TripManagement v-if="currentCar" v-bind:car="currentCar" class="ms-4 p-2"></TripManagement>
                         <RentalInformation v-else class="ms-4 p-2"></RentalInformation>
                     </div>

@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const carsurl = 'http://localhost:3001/carsroute'
-const tripsurl = 'http://localhost:3001/tripsroute'
+//const carsurl = 'http://localhost:3001/carsroute'
+//const tripsurl = 'http://localhost:3001/tripsroute'
+const carsurl = '/carsroute'
+const tripsurl = '/tripsroute'
 
 class dbConnection {
     static async getDBCars() {
