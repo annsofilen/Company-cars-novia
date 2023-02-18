@@ -2,9 +2,7 @@
     <div class="m-4 min-vh-100">
 
         <HelloWorld msg="Trips" class=" text-center pt-4" />
-        <div class="card card-body pt-2 pb-4 mb-3 container">
-            <TripStatistics></TripStatistics>
-        </div>
+
 
         <div class="card card-body pt-2 container">
 
@@ -49,10 +47,16 @@
             </table>
 
         </div>
+
+        <div class="card card-body pt-2 pb-4 mb-3 container">
+            <TripStatistics></TripStatistics>
+        </div>
 </div>
 </template>
 
 <script>
+
+
 
 
 
@@ -94,6 +98,16 @@ export default {
             this.searchRegNbr = this.search
             this.trips = await tripConnection.getTripReg(this.searchRegNbr)
 
+        },
+        renderLineChart() {
+            this.renderChart(this.chartData, this.chartOptions);
+        }
+    },
+    watch: {
+        chartData() {
+            this.$nextTick(() => {
+                this.renderLineChart();
+            })
         }
     }
 }
@@ -101,3 +115,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style></style>
+

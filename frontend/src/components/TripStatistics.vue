@@ -15,21 +15,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import tripConnection from '../dbConnection.js'
 import { Bar } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
@@ -53,7 +38,20 @@ export default {
         return {
             trips: [],
             tripCount: 0,
-            tripsPerMonth: [],
+            tripsPerMonth: {
+                january: 0,
+                february: 0,
+                march: 0,
+                april: 0,
+                may: 0,
+                june: 0,
+                july: 0,
+                august: 0,
+                september: 4,
+                october: 0,
+                november: 0,
+                december: 0
+            },
 
             chartData: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -89,16 +87,16 @@ export default {
             let dateStatistics = {
                 january: 0,
                 february: 0,
-                march: 0, 
+                march: 0,
                 april: 0,
                 may: 0,
                 june: 0,
-                july: 0, 
-                august: 0, 
-                september: 0 ,
-                october: 0, 
-                november: 0, 
-                december: 0 
+                july: 0,
+                august: 0,
+                september: 0,
+                october: 0,
+                november: 0,
+                december: 0
             }
             this.trips.forEach(trip => {
 
@@ -135,6 +133,8 @@ export default {
             return dateStatistics;
         },
 
-    }
+
+    },
+
 }
 </script>
